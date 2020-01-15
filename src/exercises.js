@@ -3,15 +3,69 @@ function commonEnd(a, b) {
     return false;
   }
 
-  // write your code here
+  f1 = a[0];
+  f2 = b[0];
+
+  if( f1 == f2) {
+    return true;
+  }
+
+  
+  l1 = a.slice(-1)[0];  
+  l2 = b.slice(-1)[0];
+  
+  if( l1 == l2 ) {
+    return true;
+  }
+
+  return false;
+  
 }
 
 function endsMeet(values, n) {
-  // write your code here
+
+  if (!values || values.length === 0 ) {
+    return [];
+  }
+
+  if( n <= 0) {
+    return [];
+  }
+
+  if( values.length < n ) { 
+    return [];
+  }
+
+  let a1 = values.slice(0, n); 
+  let a2 = values.slice(-n); 
+  return a1.concat(a2); 
 }
 
 function difference(numbers) {
-  // write your code here
+ 
+   if (!numbers || numbers.length === 0) {
+    return undefined;
+  }
+
+  var largest = numbers[0];
+  var smallest = numbers[0];
+
+  for (i = 0; i < numbers.length; i++) {
+
+    if (isNaN(numbers[i])) {
+      return undefined;
+    }
+    if (largest < numbers[i]) {
+      largest = numbers[i];
+    }
+
+    if (smallest > numbers[i]) {
+      smallest = numbers[i];
+    }
+  }
+
+  return largest - smallest;
+
 }
 
 function max(number) {
