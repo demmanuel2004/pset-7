@@ -136,32 +136,22 @@ return arr;
 
 
 function increasing(numbers) {
-  if (!numbers || numbers.length === 0) {
-return undefined;
-}
-
-var length = numbers.length;
-
-if ( length < 3 ) {
-return undefined;
-}
-
-
-for (i = 0; i < length; i++) {
-if (isNaN(numbers[i])) {
-return ;
-}
-}
-
-for( i = 0; i < numbers.length - 2; i++) {
-if( ( numbers[i+1] - numbers[i] == 1 ) && ( numbers[i+2] - numbers[i+1] == 1 ) ) {
-
-return true;
-}
-}
-
-return false;
-}
+  let flag = 0;
+  if (!numbers || numbers.length < 3 || numbers.some(isNaN) || numbers.some(Number.isInteger) === false) {
+    return false;
+  }
+  else {
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < numbers[i + 1] && numbers[i + 1] < numbers[i + 2]) {
+          flag = 1;
+          return true;
+        }
+      }
+      if (flag === 0) {
+        return false;
+      }
+    }
+  }
 
 
 function everywhere(values, x) {
