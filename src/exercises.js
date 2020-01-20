@@ -10,16 +10,16 @@ function commonEnd(a, b) {
     return true;
   }
 
-  
-  l1 = a.slice(-1)[0];  
+
+  l1 = a.slice(-1)[0];
   l2 = b.slice(-1)[0];
-  
+
   if( l1 == l2 ) {
     return true;
   }
 
   return false;
-  
+
 }
 
 function endsMeet(values, n) {
@@ -32,17 +32,17 @@ function endsMeet(values, n) {
     return [];
   }
 
-  if( values.length < n ) { 
+  if( values.length < n ) {
     return [];
   }
 
-  let a1 = values.slice(0, n); 
-  let a2 = values.slice(-n); 
-  return a1.concat(a2); 
+  let a1 = values.slice(0, n);
+  let a2 = values.slice(-n);
+  return a1.concat(a2);
 }
 
 function difference(numbers) {
- 
+
    if (!numbers || numbers.length === 0) {
     return undefined;
   }
@@ -83,9 +83,9 @@ if( length % 2 == 0 ) {
 return undefined;
 }
 
-var middle = parseInt( length / 2 ); 
+var middle = parseInt( length / 2 );
 
-var largest = number[0]; 
+var largest = number[0];
 
 for (i = 0; i < length; i++) {
 
@@ -93,17 +93,17 @@ if (isNaN(number[i])) {
 return undefined;
 }
 
-if( i == 0 || i == middle || i == (length - 1) ) { 
+if( i == 0 || i == middle || i == (length - 1) ) {
 
-if( largest < number[i] ) { 
-largest = number[i]; 
+if( largest < number[i] ) {
+largest = number[i];
 }
 }
 }
 
 return largest;
 }
-}
+
 
 function middle(values) {
   if (!values || values.length === 0) {
@@ -120,12 +120,12 @@ if( length % 2 == 0 ) {
 return [];
 }
 
-var middle = parseInt( length / 2 ) ; 
+var middle = parseInt( length / 2 ) ;
 let arr = [];
 
 
 for (i = 0; i < length; i++) {
-if( i == (middle-1) || i == middle ) { 
+if( i == (middle-1) || i == middle ) {
 arr.push ( values[i] );
 }
 }
@@ -134,7 +134,6 @@ return arr;
 
 }
 
-}
 
 function increasing(numbers) {
   if (!numbers || numbers.length === 0) {
@@ -148,7 +147,7 @@ return undefined;
 }
 
 
-for (i = 0; i < length; i++) { 
+for (i = 0; i < length; i++) {
 if (isNaN(numbers[i])) {
 return ;
 }
@@ -163,24 +162,128 @@ return true;
 
 return false;
 }
-}
+
 
 function everywhere(values, x) {
-  // write your code here
+  let flag = 1;
+  if (!values || values.length < 1 || x === undefined) {
+    return false;
+  }
+  else {
+
+    for (let i = 0; i < values.length - 1; i++) {
+      if (values[i] === x) {
+        flag = 0;
+      }
+      else if (values[i - 1] === x || values[i + 1] === x) {
+        flag = 0;
+      }
+      else {
+        flag = 1;
+        return false;
+      }
+    }
+  }
+  if (flag === 0) {
+    return true;
+  }
+
 }
 
 function consecutive(numbers) {
-  // write your code here
+  if (!numbers || numbers.length === 0) {
+    return false;
+  }
+
+  var length = numbers.length;
+
+  if ( length < 3 ) {
+    return false;
+  }
+
+
+  for (i = 0; i < length; i++) {
+    if (isNaN(numbers[i])) {
+      return false;
+    }
+  }
+
+  for( i = 0; i < numbers.length - 2; i++) {//i=0 , i=1 , i=2 , i=3
+    if( ( numbers[i] % 2 == 0 ) && ( numbers[i+1] % 2 == 0 ) && ( numbers[i+2] % 2 == 0 ) ) {
+
+      return true;
+    }
+    if( ( numbers[i] % 2 != 0 ) && ( numbers[i+1] % 2 != 0 ) && ( numbers[i+2] % 2 != 0 ) ) {
+
+      return true;
+    }
+  }
+
+  return false;
 }
+
 
 function balance(numbers) {
-  // write your code here
-  console.log("test");
+  if (!numbers || numbers.length === 0) {
+   return false;
+ }
+
+ var length = numbers.length;
+
+ if ( length < 2 ) {
+   return false;
+ }
+
+ let lSum = 0;
+
+ for (i = 0; i < length; i++) {
+   if (isNaN(numbers[i])) {
+     return false;
+   }
+   lSum += numbers[i];
+
+ }
+ let rSum = 0;
+ for(i=length-1; i>=0; i--) {
+   rSum += numbers[i];
+   lSum -= numbers[i];
+   if(lSum == rSum) {
+     return true;
+   }
+ }
+ return false;
 }
 
+  console.log("test");
+
+
 function clumps(values) {
-  // write your code here
+  if (!values ) {
+   return -1;
+ }
+ let temp = "";
+ let result  = 0;
+ let last = "";
+
+ for(i = 0 ; i < values.length ; i++) {
+
+   if(values[i] == temp ) {
+
+     if(last.length == 0)  {
+
+       result++;
+
+       last = values[i];
+
+     }
+   } else {
+     last = '';
+   }
+   temp = values[i];
+ }
+ return result;
 }
+
 
 /*
  * Exports all functions for use in external grader.js file. Do not modify.
