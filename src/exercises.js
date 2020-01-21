@@ -25,7 +25,7 @@ function commonEnd(a, b) {
 function endsMeet(values, n) {
 
     if (!values || values.length === 0) {
-        return [];
+        return []; 
     }
 
     if (n <= 0) {
