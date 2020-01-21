@@ -32,7 +32,7 @@ function endsMeet(values, n) {
         return [];
     }
 
-    if (values.length < n) {
+    if (values.length < n) { 
         return [];
     }
 
