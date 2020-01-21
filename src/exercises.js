@@ -7,7 +7,7 @@ function commonEnd(a, b) {
     f2 = b[0];
 
     if (f1 == f2) {
-        return true;
+        return true; 
     }
 
 
