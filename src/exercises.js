@@ -83,7 +83,7 @@ function max(number) {
         return undefined;
     }
 
-    var middle = parseInt(length / 2);
+    var middle = parseInt(length / 2); 
 
     var largest = number[0];
 
