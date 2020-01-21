@@ -12,7 +12,7 @@ function commonEnd(a, b) {
 
 
     l1 = a.slice(-1)[0];
-    l2 = b.slice(-1)[0];
+    l2 = b.slice(-1)[0]; 
 
     if (l1 == l2) {
         return true;
